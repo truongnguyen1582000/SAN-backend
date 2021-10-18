@@ -1,1 +1,0 @@
-Tạm thời để đây để commit folder, khi nào code vào commit lên sẽ xoá file này!
