@@ -1,0 +1,14 @@
+###
+POST http://localhost:3000/api/post/
+content-type: application/json
+Authorization: Berrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE5Y2Y2ZDBlMGVlYmQ4ZDA5NDc4YTAwIn0sImlhdCI6MTYzNzg0ODE3OSwiZXhwIjoxNjM3OTM0NTc5fQ.0yHe_7MOY-57E7roGTkcJyBEKqlcreTh1vtxDTelSbE
+
+{
+  "postTitle": "post 1 1",
+  "postContent": "post 1"
+}
+
+###
+GET http://localhost:3000/api/post/
+content-type: application/json
+

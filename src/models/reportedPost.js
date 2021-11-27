@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const { ObjectId } = mongoose.Schema;
 const { Schema } = mongoose;
 
 const reportedPost = Schema({
-  postId: {
-    type: Schema.Types.ObjectId,
+  postReported: {
+    type: ObjectId,
     ref: 'Post',
   },
 });

@@ -1,0 +1,19 @@
+###
+POST http://localhost:3000/api/auth/signin
+content-type: application/json
+
+{
+    "studentId": "44444444444",
+    "password": "12345"
+}
+###
+POST http://localhost:3000/api/auth/createUser
+content-type: application/json
+
+{
+    "email":"a4@gmail.com",
+    "studentId": "44444444444",
+    "name": "truong4",
+    "password": "12345"
+}
+

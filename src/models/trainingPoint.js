@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const { Schema } = mongoose;
 
-const eventModel = Schema({});
+const trainingPointModel = Schema({}, { timestamps: true });
 
-const EventModel = mongoose.model('Event', eventModel);
-module.exports = EventModel;
+const TrainingPointModel = mongoose.model('TrainingPoint', trainingPointModel);
+module.exports = TrainingPointModel;
