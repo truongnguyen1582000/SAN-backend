@@ -1,0 +1,30 @@
+###
+POST http://localhost:3000/api/topic/
+content-type: application/json
+Authorization: beasrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODQ1OTkyNCwiZXhwIjoxNjM4NTQ2MzI0fQ.kBg-oZ2bwY0ermhqEwU_ZPNryL_HyLkwSM_OrjlUkKc
+
+{
+    "name": "topicnew"
+}
+
+###
+GET http://localhost:3000/api/topic/
+content-type: application/json
+
+###
+GET http://localhost:3000/api/topic/61a8eaadcfc6a554067a83c1
+content-type: application/json
+
+###
+PUT http://localhost:3000/api/topic/61a8eaadcfc6a554067a83c1
+content-type: application/json
+Authorization: beasrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODQ1OTkyNCwiZXhwIjoxNjM4NTQ2MzI0fQ.kBg-oZ2bwY0ermhqEwU_ZPNryL_HyLkwSM_OrjlUkKc
+
+{
+    "updatedTopic": "topic 4 updated"
+}
+
+###
+DELETE http://localhost:3000/api/topic/61a8eaadcfc6a554067a83c1
+content-type: application/json
+Authorization: beasrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODQ1OTkyNCwiZXhwIjoxNjM4NTQ2MzI0fQ.kBg-oZ2bwY0ermhqEwU_ZPNryL_HyLkwSM_OrjlUkKc

@@ -16,7 +16,11 @@ const eventModel = Schema(
       type: String,
       required: true,
     },
-    expiredDay: { type: Date },
+    status: {
+      type: String,
+      enum: ['opened', 'closed'],
+    },
+    expiredDay: { type: Date, default: Date.now() },
     registedStudent: [{ type: ObjectId, ref: 'User' }],
     joinedStudent: [
       {

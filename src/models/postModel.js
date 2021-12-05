@@ -9,6 +9,7 @@ const postModel = mongoose.Schema(
       enum: ['blog', 'question'],
       default: 'question',
     },
+    topics: { type: ObjectId, ref: 'Topic' },
     postTitle: {
       type: String,
       required: true,
@@ -17,8 +18,8 @@ const postModel = mongoose.Schema(
       type: String,
       required: true,
     },
-    upvote: [{ type: ObjectId, ref: 'User' }],
-    downvote: [{ type: ObjectId, ref: 'User' }],
+    upvote: [{ type: ObjectId, ref: 'User', unique: true }],
+    downvote: [{ type: ObjectId, ref: 'User', unique: true }],
     postComment: [
       {
         commentBy: { type: ObjectId, ref: 'User' },

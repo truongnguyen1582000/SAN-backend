@@ -18,12 +18,14 @@ const authRoute = require('./src/routes/authRoute');
 const postRoute = require('./src/routes/postRoute');
 const eventRoute = require('./src/routes/eventRoute');
 const trainingPointRoute = require('./src/routes/trainingPointRoute');
+const topicRoute = require('./src/routes/topicRoute');
 
 app.use('/api', router);
 router.use('/auth', authRoute);
 router.use('/post', postRoute);
 router.use('/event', eventRoute);
 router.use('/training-point', trainingPointRoute);
+router.use('/topic', topicRoute);
 
 // handle undefined url
 app.all('*', (req, res, next) => {

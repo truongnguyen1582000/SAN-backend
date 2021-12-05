@@ -1,8 +1,18 @@
 ###
 POST http://localhost:3000/api/event
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMjM1OGE4Y2FlMmU1ODE0YTNlNTZjIn0sImlhdCI6MTYzODExNTQ0NiwiZXhwIjoxNjM4MjAxODQ2fQ.7RPsMCoz6mEuh3FXOjqspO6oEkGdkB5OlsCbYfMBW5g
 
 {
    "name": "event 2",
    "description": "holding for what"
 }
+
+###
+GET http://localhost:3000/api/event
+content-type: application/json
+
+###
+GET http://localhost:3000/api/event/61a247452c79668e28dcaa02
+content-type: application/json
+

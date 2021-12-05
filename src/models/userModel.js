@@ -26,20 +26,24 @@ const userModel = Schema(
       type: String,
       required: true,
     },
-    topic: [
-      {
-        topicName: {
-          type: String,
-        },
-      },
-    ],
+    faculty: {
+      type: String,
+      required: true,
+    },
+    course: {
+      type: String,
+      required: true,
+    },
+    trainingPoint: {
+      type: Number,
+      default: 0,
+    },
+    topics: [{ type: ObjectId, ref: 'Topic' }],
     role: {
       type: String,
       default: 'student',
       enum: ['student', 'admin'],
     },
-    posteds: [{ type: ObjectId, ref: 'Post' }],
-    events: [{ type: ObjectId, ref: 'Event' }],
   },
   { timestamps: true }
 );
