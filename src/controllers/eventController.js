@@ -26,7 +26,10 @@ module.exports = {
   },
   getAll: async (req, res) => {
     try {
-      const eventList = await Event.find().populate('creator', 'name');
+      const eventList = await Event.find().populate(
+        'creator registedStudent joinedStudent',
+        'name'
+      );
       res.status(200).json({
         message: 'Get event list successfully',
         data: eventList,
@@ -39,7 +42,9 @@ module.exports = {
   },
   getById: async (req, res) => {
     try {
-      const event = await Event.findOne({ _id: req.params.id });
+      const event = await Event.findOne({ _id: req.params.id }).populate(
+        'registedStudent joinedStudent'
+      );
 
       res.status(200).json({
         message: 'Get event list successfully',
@@ -78,6 +83,7 @@ module.exports = {
     }
   },
   join: async (req, res) => {
+    console.log(req.params.id);
     try {
       await Event.findOneAndUpdate(
         req.params.id,

@@ -20,6 +20,16 @@ router.post(
   authMiddleware.authenticate,
   postController.comment
 );
+router.delete(
+  '/:id/comment/:commentId',
+  authMiddleware.authenticate,
+  postController.deleteComment
+);
+router.put(
+  '/:id/comment/:commentId',
+  authMiddleware.authenticate,
+  postController.updateComment
+);
 router.post(
   '/:postId/comment/:commentId/vote-up',
   authMiddleware.authenticate,

@@ -3,6 +3,7 @@ const { ObjectId } = mongoose.Schema;
 
 const notificationSchema = new mongoose.Schema(
   {
+    student: { type: ObjectId, ref: 'User' },
     title: {
       type: String,
       trim: true,
@@ -17,6 +18,7 @@ const notificationSchema = new mongoose.Schema(
     readed: {
       type: Boolean,
       required: true,
+      default: false,
     },
   },
   { timestamps: true }

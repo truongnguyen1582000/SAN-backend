@@ -25,12 +25,11 @@ const getById = async (req, res) => {
     res.status(200).json({
       message: 'Get post successfully',
       data: await Post.findById(req.params.id)
-        .populate('author', '_id name')
-        .populate('topics', '_id name')
+        .populate('author topics upvote downvote', '_id name')
         .populate({
           path: 'postComment',
           populate: {
-            path: 'commentBy',
+            path: 'commentBy upvote downvote',
             select: '_id name',
           },
         }),
@@ -46,7 +45,7 @@ const getAll = async (req, res) => {
   try {
     res.status(200).json({
       message: 'Get all post successfully',
-      data: await Post.find().populate('author topics', '_id name'),
+      data: await Post.find().populate('author topic', '_id name'),
     });
   } catch (error) {
     res.status(400).json({
@@ -192,12 +191,21 @@ const commentVoteUp = async (req, res) => {
   const commentId = req.params.commentId;
 
   try {
-    await Post.findByIdAndUpdate(
-      { _id: postId, 'postComment._id': commentId },
-      {
-        $push: { 'postComment.commentBy': req.user.id },
-      }
+    const post = await Post.findById(postId);
+    const commentList = post.postComment;
+    const idxComment = commentList.findIndex(
+      (el) => el._id.toString() === commentId
     );
+    commentList[idxComment].upvote.push(req.user.id);
+    commentList[idxComment].downvote = commentList[idxComment].downvote.filter(
+      (el) => el._id !== req.user.id
+    );
+
+    post.postComment = commentList;
+    await Post.findByIdAndUpdate(postId, post);
+    res.status(200).json({
+      message: 'Vote up comment successfully',
+    });
   } catch (error) {
     res.status(400).json({
       error: error.message,
@@ -209,12 +217,69 @@ const commentVoteDown = async (req, res) => {
   const commentId = req.params.commentId;
 
   try {
-    await Post.findByIdAndUpdate(
-      { _id: postId, 'postComment._id': commentId },
-      {
-        $pull: { 'postComment.commentBy': req.user.id },
-      }
+    const post = await Post.findById(postId);
+    const commentList = post.postComment;
+    const idxComment = commentList.findIndex(
+      (el) => el._id.toString() === commentId
     );
+    commentList[idxComment].downvote.push(req.user.id);
+    commentList[idxComment].upvote = commentList[idxComment].upvote.filter(
+      (el) => el._id !== req.user.id
+    );
+    post.postComment = commentList;
+    await Post.findByIdAndUpdate(postId, post);
+    res.status(200).json({
+      message: 'Vote down comment successfully',
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+    });
+  }
+};
+
+const deleteComment = async (req, res) => {
+  const postId = req.params.postId;
+  const commentId = req.params.commentId;
+
+  try {
+    const post = await Post.findById(postId);
+    const commentList = post.postComment;
+    const idxComment = commentList.findIndex(
+      (el) => el._id.toString() === commentId
+    );
+    commentList[idxComment] = undefined;
+    post.postComment = commentList;
+
+    await Post.findByIdAndUpdate(postId, post);
+
+    res.status(200).json({
+      message: 'Delete comment successfully',
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+    });
+  }
+};
+
+const updateComment = async (req, res) => {
+  const postId = req.params.postId;
+  const commentId = req.params.commentId;
+
+  try {
+    const post = await Post.findById(postId);
+    const commentList = post.postComment;
+    const idxComment = commentList.findIndex(
+      (el) => el._id.toString() === commentId
+    );
+
+    commentList[idxComment].comment = req.body.newComment;
+
+    await Post.findByIdAndUpdate(postId, post);
+    res.status(200).json({
+      message: 'Update comment successfully',
+    });
   } catch (error) {
     res.status(400).json({
       error: error.message,
@@ -235,4 +300,6 @@ module.exports = {
   comment,
   commentVoteUp,
   commentVoteDown,
+  deleteComment,
+  updateComment,
 };

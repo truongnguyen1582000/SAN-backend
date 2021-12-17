@@ -6,9 +6,11 @@ const { authenticate } = require('../middlewares/auth');
 router.post('/', authenticate, eventController.create);
 router.get('/:id', eventController.getById);
 router.get('/', eventController.getAll);
+// router.get('/', eventController.joinedList);
+// router.get('/', eventController.attendedList);
 router.delete('/:id', eventController.delete);
 router.put('/:id', eventController.update);
-router.post('/joinEvent', authenticate, eventController.join);
-router.post('/leaveEvent', authenticate, eventController.leave);
+router.post('/:id/join-event', authenticate, eventController.join);
+router.post('/:id/leave-event', authenticate, eventController.leave);
 
 module.exports = router;

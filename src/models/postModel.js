@@ -9,7 +9,7 @@ const postModel = mongoose.Schema(
       enum: ['blog', 'question'],
       default: 'question',
     },
-    topics: { type: ObjectId, ref: 'Topic' },
+    topic: { type: ObjectId, ref: 'Topic' },
     postTitle: {
       type: String,
       required: true,
