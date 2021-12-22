@@ -1,17 +1,17 @@
 ###
-POST http://localhost:3000/api/post/
+POST http://localhost:3001/api/post/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODYwMjkwMSwiZXhwIjoxNjM4Njg5MzAxfQ.dp897GCIaxXXgY6jsLV1O0fJRZyMZ1eqdPa9SrwJi3Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzOTg4MDE2NiwiZXhwIjoxNjM5OTY2NTY2fQ.g_vITZ8w-vtnWbJBqXE1abrrNZ9pEwr-MDxAlwbaA0Y
 
 
 {
-  "postTitle": "post test 1",
-  "postContent": "so 1",
+  "postTitle": "post haha 1",
+  "postContent": "so aaaaaa",
   "topicId": "61aa3990bbd0cecf1bf1799c"
 }
 
 ###
-GET http://localhost:3000/api/post/
+GET http://localhost:3001/api/post/
 content-type: application/json
 
 ###

@@ -26,7 +26,7 @@ const eventModel = Schema(
       {
         student: { type: ObjectId, ref: 'User' },
         pictureUrl: {
-          type: String,
+          type: Buffer,
         },
       },
     ],

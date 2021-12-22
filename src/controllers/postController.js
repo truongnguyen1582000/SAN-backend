@@ -6,7 +6,7 @@ const create = async (req, res) => {
     const newPost = await Post.create({
       ...req.body,
       author: req.user.id,
-      topics: req.body.topicId,
+      topic: req.body.topicId,
     });
 
     res.status(200).json({
@@ -45,7 +45,9 @@ const getAll = async (req, res) => {
   try {
     res.status(200).json({
       message: 'Get all post successfully',
-      data: await Post.find().populate('author topic', '_id name'),
+      data: await Post.find()
+        .populate('author topic', '_id name')
+        .sort('-updatedAt'),
     });
   } catch (error) {
     res.status(400).json({

@@ -117,6 +117,7 @@ const addTopic = async (req, res) => {
     });
   }
 };
+
 const removeTopic = async (req, res) => {
   const topicId = req.body.topicId;
   try {
