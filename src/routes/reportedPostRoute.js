@@ -11,17 +11,9 @@ const {
 const authMiddleware = require('../middlewares/auth');
 
 router.get('/reported-post/:postId', read);
-router.post('/reported-post/:userId', authMiddleware.authenticate, create);
-router.put(
-    '/reported-post/:postId/:userId',
-    authMiddleware.authenticate,
-    update
-);
-router.delete(
-    '/reported-post/:postId/:userId',
-    authMiddleware.authenticate,
-    remove
-);
+router.post('/reported-post', authMiddleware.authenticate, create);
+router.put('/reported-post/:postId', authMiddleware.authenticate, update);
+router.delete('/reported-post/:postId', authMiddleware.authenticate, remove);
 router.get('/reported-post', list);
 
 router.param('postId', reportedPostById);
