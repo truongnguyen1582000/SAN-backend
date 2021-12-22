@@ -23,11 +23,14 @@ const eventModel = Schema({
     registedStudent: [{ type: ObjectId, ref: 'User' }],
     joinedStudent: [{
         student: { type: ObjectId, ref: 'User' },
-        checkAttend: false,
-        pictureUrl: {
-            data: Buffer,
-            contentType: String,
+        checkAttend: {
+            type: Boolean,
+            default: false,
         },
+        // pictureUrl: {
+        //     data: Buffer,
+        //     contentType: String,
+        // },
     }, ],
 }, { timestamps: true });
 

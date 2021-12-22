@@ -43,9 +43,6 @@ module.exports = {
             });
         }
     },
-    read: (req, res) => {
-        return res.json(req.event);
-    },
     eventById: (req, res, next, id) => {
         Event.findById(id).exec((err, event) => {
             if (err || !event) {
@@ -56,6 +53,9 @@ module.exports = {
             req.event = event;
             next();
         });
+    },
+    read: (req, res) => {
+        return res.json(req.event);
     },
     // getById: async(req, res) => {
     //     try {
@@ -73,17 +73,17 @@ module.exports = {
     //         });
     //     }
     // },
-    update: async(req, res) => {
-        try {
-            await Event.findOneAndUpdate(req.params.id, req.body.updatedEvent);
-            res.status(200).json({
-                message: 'Update event successfully',
-            });
-        } catch (error) {
-            res.status(400).json({
-                message: error.message,
-            });
-        }
+    update: (req, res) => {
+        let event = req.event;
+        event = _.extend(event, req.body);
+        event.save((err, data) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err,
+                });
+            }
+            res.json(data);
+        });
     },
     delete: async(req, res) => {
         try {
