@@ -25,7 +25,7 @@ const getById = async (req, res) => {
     res.status(200).json({
       message: 'Get post successfully',
       data: await Post.findById(req.params.id)
-        .populate('author topics upvote downvote', '_id name')
+        .populate('author topic upvote downvote', '_id name')
         .populate({
           path: 'postComment',
           populate: {
