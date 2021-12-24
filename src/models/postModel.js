@@ -18,16 +18,16 @@ const postModel = mongoose.Schema(
       type: String,
       required: true,
     },
-    upvote: [{ type: ObjectId, ref: 'User', unique: true }],
-    downvote: [{ type: ObjectId, ref: 'User', unique: true }],
+    upvote: [{ type: ObjectId, ref: 'User', default: [] }],
+    downvote: [{ type: ObjectId, ref: 'User', default: [] }],
     postComment: [
       {
         commentBy: { type: ObjectId, ref: 'User' },
         comment: {
           type: String,
         },
-        upvote: [{ type: ObjectId, ref: 'User' }],
-        downvote: [{ type: ObjectId, ref: 'User' }],
+        upvoteC: [{ type: ObjectId, ref: 'User', default: [] }],
+        downvoteC: [{ type: ObjectId, ref: 'User', default: [] }],
       },
     ],
   },

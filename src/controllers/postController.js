@@ -289,6 +289,21 @@ const updateComment = async (req, res) => {
   }
 };
 
+const listSearch = (req, res) => {
+  const query = {};
+  if (req.query.search) {
+    query.name = { $regex: req.query.search, $options: 'i' };
+    Post.find(query, (err, posts) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      res.json(posts);
+    });
+  }
+};
+
 module.exports = {
   create,
   getAll,
@@ -304,4 +319,5 @@ module.exports = {
   commentVoteDown,
   deleteComment,
   updateComment,
+  listSearch,
 };

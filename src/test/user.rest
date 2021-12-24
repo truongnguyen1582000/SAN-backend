@@ -3,8 +3,8 @@ POST http://localhost:3001/api/auth/signin
 content-type: application/json
 
 {
-    "studentId": "88888888888",
-    "password": "123123123"
+    "studentId": "24211206955",
+    "password": "truong1508"
 }
 
 ###
@@ -18,10 +18,10 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODQ0Njc1MywiZXhwIjoxNjM4NTMzMTUzfQ.EGQNXoxwnE8dqdbwLNcIPKqlzjO8W0FSRJfFIjKVoUE
 
 {
-    "email":"a4@gmail.com",
-    "studentId": "44444444444",
-    "name": "truong4",
-    "password": "12345",
+    "email":"truongnguyen1582000@gmail.com",
+    "studentId": "24211206955",
+    "name": "van truong",
+    "password": "truong1508",
     "role": "student",
     "course": "k24",
     "faculty": "IT"
