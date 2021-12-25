@@ -56,7 +56,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiN
 }
 
 ###
-POST http://localhost:3000/api/post/61ac5b5635075a9debb55549/comment/61acd1e02679d99605cea905/vote-up
+POST http://localhost:3001/api/post/61ac5b5635075a9debb55549/comment/61acd1e02679d99605cea905/vote-up
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODY5MTUxNSwiZXhwIjoxNjM4Nzc3OTE1fQ.B0-jLZ3MMZnBgk-glTgecaSb_aEjQgmftYZQz4-JBRg
 

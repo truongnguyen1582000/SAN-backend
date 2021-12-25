@@ -198,12 +198,13 @@ const commentVoteUp = async (req, res) => {
     const idxComment = commentList.findIndex(
       (el) => el._id.toString() === commentId
     );
-    commentList[idxComment].upvote.push(req.user.id);
-    commentList[idxComment].downvote = commentList[idxComment].downvote.filter(
-      (el) => el._id !== req.user.id
-    );
+    commentList[idxComment].upvoteC.push(req.user.id);
+    commentList[idxComment].downvoteC = commentList[
+      idxComment
+    ].downvoteC.filter((el) => el._id.toString() !== req.user.id);
 
     post.postComment = commentList;
+
     await Post.findByIdAndUpdate(postId, post);
     res.status(200).json({
       message: 'Vote up comment successfully',
@@ -224,9 +225,9 @@ const commentVoteDown = async (req, res) => {
     const idxComment = commentList.findIndex(
       (el) => el._id.toString() === commentId
     );
-    commentList[idxComment].downvote.push(req.user.id);
-    commentList[idxComment].upvote = commentList[idxComment].upvote.filter(
-      (el) => el._id !== req.user.id
+    commentList[idxComment].downvoteC.push(req.user.id);
+    commentList[idxComment].upvoteC = commentList[idxComment].upvoteC.filter(
+      (el) => el._id.toString() !== req.user.id
     );
     post.postComment = commentList;
     await Post.findByIdAndUpdate(postId, post);
@@ -241,16 +242,20 @@ const commentVoteDown = async (req, res) => {
 };
 
 const deleteComment = async (req, res) => {
-  const postId = req.params.postId;
+  const postId = req.params.id;
   const commentId = req.params.commentId;
+
+  console.log(postId, commentId);
 
   try {
     const post = await Post.findById(postId);
-    const commentList = post.postComment;
+    let commentList = post.postComment;
     const idxComment = commentList.findIndex(
       (el) => el._id.toString() === commentId
     );
-    commentList[idxComment] = undefined;
+
+    commentList.splice(idxComment, 1);
+
     post.postComment = commentList;
 
     await Post.findByIdAndUpdate(postId, post);

@@ -18,11 +18,11 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODQ0Njc1MywiZXhwIjoxNjM4NTMzMTUzfQ.EGQNXoxwnE8dqdbwLNcIPKqlzjO8W0FSRJfFIjKVoUE
 
 {
-    "email":"truongnguyen1582000@gmail.com",
-    "studentId": "24211206955",
-    "name": "van truong",
-    "password": "truong1508",
-    "role": "student",
+    "email":"admin@gmail.com",
+    "studentId": "11111111111",
+    "name": "admin",
+    "password": "123123123",
+    "role": "admin",
     "course": "k24",
     "faculty": "IT"
 }
