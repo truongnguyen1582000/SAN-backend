@@ -298,6 +298,9 @@ const listSearch = (req, res) => {
   const query = {};
   if (req.query.search) {
     query.name = { $regex: req.query.search, $options: 'i' };
+    if (req.query.postType && req.query.postType != 'All') {
+      query.postType = req.query.postType;
+    }
     Post.find(query, (err, posts) => {
       if (err) {
         return res.status(400).json({
