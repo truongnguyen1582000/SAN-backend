@@ -1,11 +1,12 @@
 ###
-POST http://localhost:3000/api/event
+POST http://localhost:3001/api/event
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODcxOTY5MCwiZXhwIjoxNjM4ODA2MDkwfQ.r9p9bRtaJ-eUALlpo6oLfhqbFNbHVnYfjTZdkkZTiW0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjNmNmMjA1MzI0MzgxOGMyNmIyMWYyIn0sImlhdCI6MTY0MDQ4MzAwMiwiZXhwIjoxNjQwNTY5NDAyfQ.4ZFFspyphAp4EkddW4PGmSnIcSgh3Zz0qfuDFqi8EP8
 
 {
-   "name": "event 3",
-   "description": "holding for what"
+   "name": "event 4",
+   "description": "some text here",
+   "expiredDay": "3/2/2021"
 }
 
 ###

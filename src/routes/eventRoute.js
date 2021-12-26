@@ -12,6 +12,7 @@ router.delete('/:id', eventController.delete);
 router.put('/:id', eventController.update);
 router.post('/:id/join-event', authenticate, eventController.join);
 router.post('/:id/leave-event', authenticate, eventController.leave);
+router.post('/:id/attend-event', authenticate, eventController.attend);
 
 router.param('id', eventController.eventById);
 

@@ -296,11 +296,9 @@ const updateComment = async (req, res) => {
 
 const listSearch = (req, res) => {
   const query = {};
-  if (req.query.search) {
-    query.name = { $regex: req.query.search, $options: 'i' };
-    if (req.query.postType && req.query.postType != 'All') {
-      query.postType = req.query.postType;
-    }
+  if (req.query.name) {
+    query.postTitle = { $regex: req.query.name, $options: 'i' };
+
     Post.find(query, (err, posts) => {
       if (err) {
         return res.status(400).json({
@@ -308,7 +306,7 @@ const listSearch = (req, res) => {
         });
       }
       res.json(posts);
-    });
+    }).populate('topic');
   }
 };
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 const authMiddleware = require('../middlewares/auth');
 
+router.get('/search', postController.listSearch);
 router.get('/:id', postController.getById);
 router.get('/topic/:topicName', postController.getByTopic);
 router.get('/', postController.getAll);
@@ -11,36 +12,34 @@ router.delete('/:id', authMiddleware.authenticate, postController.deleteById);
 router.put('/:id', authMiddleware.authenticate, postController.update);
 router.post('/:id/vote-up', authMiddleware.authenticate, postController.voteUp);
 router.post(
-    '/:id/vote-down',
-    authMiddleware.authenticate,
-    postController.voteDown
+  '/:id/vote-down',
+  authMiddleware.authenticate,
+  postController.voteDown
 );
 router.post(
-    '/:id/comment',
-    authMiddleware.authenticate,
-    postController.comment
+  '/:id/comment',
+  authMiddleware.authenticate,
+  postController.comment
 );
 router.delete(
-    '/:id/comment/:commentId',
-    authMiddleware.authenticate,
-    postController.deleteComment
+  '/:id/comment/:commentId',
+  authMiddleware.authenticate,
+  postController.deleteComment
 );
 router.put(
-    '/:id/comment/:commentId',
-    authMiddleware.authenticate,
-    postController.updateComment
+  '/:id/comment/:commentId',
+  authMiddleware.authenticate,
+  postController.updateComment
 );
 router.post(
-    '/:postId/comment/:commentId/vote-up',
-    authMiddleware.authenticate,
-    postController.commentVoteUp
+  '/:postId/comment/:commentId/vote-up',
+  authMiddleware.authenticate,
+  postController.commentVoteUp
 );
 router.post(
-    '/:postId/comment/:commentId/vote-down',
-    authMiddleware.authenticate,
-    postController.commentVoteDown
+  '/:postId/comment/:commentId/vote-down',
+  authMiddleware.authenticate,
+  postController.commentVoteDown
 );
-
-router.get('/search', postController.listSearch);
 
 module.exports = router;
