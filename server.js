@@ -4,13 +4,12 @@ const cors = require('cors');
 var router = express.Router();
 const morgan = require('morgan');
 
-const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(
-    cors({
-        origin: '*',
-        credentials: true,
-    })
+  cors({
+    origin: '*',
+    credentials: true,
+  })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,13 +35,13 @@ router.use('/topic', topicRoute);
 
 // handle undefined url
 app.all('*', (req, res, next) => {
-    res.status(404).json({
-        message: `Can't find ${req.originalUrl} on this server!`,
-    });
+  res.status(404).json({
+    message: `Can't find ${req.originalUrl} on this server!`,
+  });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listen on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server listen on port ${PORT}`);
 });
 
 module.exports = app;
