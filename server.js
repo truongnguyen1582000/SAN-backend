@@ -40,8 +40,10 @@ app.all('*', (req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listen on port ${PORT}`);
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
+  console.log(`Server listen on port ${port}`);
 });
 
 module.exports = app;
