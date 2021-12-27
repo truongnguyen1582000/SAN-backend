@@ -15,6 +15,19 @@ const getAll = async (req, res) => {
   }
 };
 
+const deleteAccount = async (req, res) => {
+  try {
+    await User.findByIdAndRemove(req.params.id);
+    res.status(200).json({
+      message: 'Delete user successfully',
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: error.message,
+    });
+  }
+};
+
 const signin = async (req, res) => {
   try {
     const studentId = req.body.studentId;
@@ -144,4 +157,5 @@ module.exports = {
   addTopic,
   changePassword,
   getAll,
+  deleteAccount,
 };

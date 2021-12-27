@@ -56,22 +56,22 @@ module.exports = {
   read: (req, res) => {
     return res.json(req.event);
   },
-  // getById: async(req, res) => {
-  //     try {
-  //         const event = await Event.findOne({ _id: req.params.id }).populate(
-  //             'registedStudent joinedStudent'
-  //         );
+  getById: async (req, res) => {
+    try {
+      const event = await Event.findOne({ _id: req.params.id }).populate(
+        'registedStudent attendedStudent'
+      );
 
-  //         res.status(200).json({
-  //             message: 'Get event list successfully',
-  //             data: event,
-  //         });
-  //     } catch (error) {
-  //         res.status(400).json({
-  //             message: error.message,
-  //         });
-  //     }
-  // },
+      res.status(200).json({
+        message: 'Get event list successfully',
+        data: event,
+      });
+    } catch (error) {
+      res.status(400).json({
+        message: error.message,
+      });
+    }
+  },
   update: (req, res) => {
     let event = req.event;
     event = _.extend(event, req.body);

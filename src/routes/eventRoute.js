@@ -4,7 +4,7 @@ const eventController = require('../controllers/eventController');
 const { authenticate } = require('../middlewares/auth');
 
 router.post('/', authenticate, eventController.create);
-router.get('/:id', eventController.read);
+router.get('/:id', eventController.getById);
 router.get('/', eventController.getAll);
 // router.get('/', eventController.joinedList);
 // router.get('/', eventController.attendedList);
@@ -14,6 +14,6 @@ router.post('/:id/join-event', authenticate, eventController.join);
 router.post('/:id/leave-event', authenticate, eventController.leave);
 router.post('/:id/attend-event', authenticate, eventController.attend);
 
-router.param('id', eventController.eventById);
+// router.param('id', eventController.eventById);
 
 module.exports = router;
