@@ -1,10 +1,10 @@
 ###
-POST http://localhost:3001/api/topic/
+POST http://localhost:8000/api/topic/
 content-type: application/json
-Authorization: beasrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjNWMzY2E1MjA4MmUzYmJiODE3NjI0In0sImlhdCI6MTY0MDM1NDc3MiwiZXhwIjoxNjQwNDQxMTcyfQ.LKL92y6HaWf0Ihus99MI-ygeZnIaFUIUT-PTRenJxb8
+Authorization: beasrer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjNmNmMjA1MzI0MzgxOGMyNmIyMWYyIn0sImlhdCI6MTY0MDYwNjMxOSwiZXhwIjoxNjQwNjkyNzE5fQ.ym6CCKmOQo05QIS9YDQoWrP-QBdrgIEG-J99w-82ISo
 
 {
-    "name": "lmao"
+    "name": "Thiết kế Đồ họa"
 }
 
 ###

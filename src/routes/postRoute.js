@@ -42,4 +42,6 @@ router.post(
   postController.commentVoteDown
 );
 
+router.get('/training-point/:userId', postController.getTrainingPoint);
+
 module.exports = router;

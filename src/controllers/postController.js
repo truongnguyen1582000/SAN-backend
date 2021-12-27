@@ -1,4 +1,5 @@
 const Post = require('../models/postModel');
+const Event = require('../models/eventModel');
 const { isAuthorized } = require('../utils/Authorization');
 
 const create = async (req, res) => {
@@ -310,6 +311,32 @@ const listSearch = (req, res) => {
   }
 };
 
+const getTrainingPoint = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const postList = await Post.find({ author: userId });
+    const postList2 = await Post.find();
+
+    const sumVoteUpPost = postList.reduce((a, b) => (a += b.upvote.length), 0);
+    const sumVoteUpEvent = postList2.map((el) => el.postComment);
+
+    const process2 = sumVoteUpEvent.reduce((a, b) => a.concat(b), []);
+    const process3 = process2.filter(
+      (el) => el.commentBy.toString() === userId
+    );
+
+    const process4 = process3.reduce((a, b) => (a += b.upvoteC.length), 0);
+
+    res.json({
+      data: sumVoteUpPost + process4,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   create,
   getAll,
@@ -326,4 +353,5 @@ module.exports = {
   deleteComment,
   updateComment,
   listSearch,
+  getTrainingPoint,
 };

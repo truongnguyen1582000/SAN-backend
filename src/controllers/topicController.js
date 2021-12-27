@@ -73,7 +73,7 @@ const update = async (req, res) => {
 
 const deleteTopic = async (req, res) => {
   try {
-    await Topic.findByIdAndDelete(req.body.id);
+    await Topic.findByIdAndDelete(req.params.id);
     res.status(200).json({
       message: 'Delete topic successfully',
     });
