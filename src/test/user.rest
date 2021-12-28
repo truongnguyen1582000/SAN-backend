@@ -44,11 +44,3 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiN
 {
     "topicId": "61a8ea23cfc6a554067a83b8"
 }
-###
-POST http://localhost:3001/api/auth/remove-topic
-content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMjM1OGE4Y2FlMmU1ODE0YTNlNTZjIn0sImlhdCI6MTYzODAyNDY1MCwiZXhwIjoxNjM4MTExMDUwfQ.ZIPhfpEKZ9w_cTu7wYn_OrgkWUUllxECw1-iCQQ89OU
-
-{
-    "topicId": "61a321a5de41df64d9756b7e"
-}
