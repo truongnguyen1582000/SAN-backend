@@ -61,5 +61,5 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNGZlZjVmZDdmZmY4MzUxNDQ5ZGI3In0sImlhdCI6MTYzODY5MTUxNSwiZXhwIjoxNjM4Nzc3OTE1fQ.B0-jLZ3MMZnBgk-glTgecaSb_aEjQgmftYZQz4-JBRg
 
 ###
-GET http://localhost:8000/api/post/training-point/61c95505d0d3d950a2becce9
+GET http://localhost:8000/api/post/training-point/61c954ded0d3d950a2becce6
 content-type: application/json

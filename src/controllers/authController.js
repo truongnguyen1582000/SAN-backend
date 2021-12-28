@@ -1,6 +1,15 @@
 const bcrypt = require('bcrypt');
 const JWT = require('../utils/JWT');
 const User = require('../models/userModel');
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'trung77vippro@gmail.com',
+    pass: 'fpzyhelvvdbkqvzz',
+  },
+});
 
 const getAll = async (req, res) => {
   try {
@@ -77,6 +86,17 @@ const create = async (req, res) => {
         message: 'User already exist in system',
       });
     }
+
+    const mailOptions = {
+      from: 'Admin',
+      to: req.body.email,
+      subject: 'SAN - Create new user',
+      text: 'This is your information about your account.',
+      html: `Hello ! Your password in SAN is: ${req.body.password}</p>
+          <p>Thanks</p>`,
+    };
+
+    transporter.sendMail(mailOptions);
 
     // hash pwd and create
     const newUser = await User.create({
